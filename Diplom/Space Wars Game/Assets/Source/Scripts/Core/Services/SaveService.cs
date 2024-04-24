@@ -19,14 +19,14 @@ public class SaveService : MonoBehaviour
     private FactoryBonus _factoryBonus;
     private ScoreUI _scoreUI;
     private HealthUI _healthUI;
-    private LoadingServicGame _loadingServic;
+    private LoadingServiceGame _loadingService;
     private PlayerHealth _playerHealth;
     private string _filePath;
 
     [Inject]
-    public void Constructor(LoadingServicGame loadingServicGame)
+    public void Constructor(LoadingServiceGame loadingServiceGame)
     {
-        _loadingServic = loadingServicGame;
+        _loadingService = loadingServiceGame;
     }
 
     public void Setup(ScoreUI scoreUI)
@@ -62,13 +62,8 @@ public class SaveService : MonoBehaviour
 
     private void Start()
     {
-        if (_loadingServic.IsLoad)
-        {
+        if (_loadingService.IsLoad)
             LoadPosition();
-            _loadingServic.Loaouding(false);
-        }
-        else
-            ClearSaveData();
     }
 
     public void AddPosition(ISavePositionble savePosition)
@@ -92,7 +87,6 @@ public class SaveService : MonoBehaviour
             Debug.Log(saveData);
         }
         IsLoad = true;
-        _loadingServic.Loaouding(true);
     }
 
     public void LoadPosition()
@@ -166,6 +160,7 @@ public class SaveService : MonoBehaviour
             }
         }
         IsLoad = false;
+        ClearSaveData();
     }
 
     public void Save()

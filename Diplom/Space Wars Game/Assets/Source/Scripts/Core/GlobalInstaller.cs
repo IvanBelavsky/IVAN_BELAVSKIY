@@ -19,7 +19,7 @@ public class GlobalInstaller : MonoInstaller
     
     private void BindGameInput()
     {
-        Container.Bind<LoadingServicGame>()
+        Container.Bind<LoadingServiceGame>()
             .FromComponentInNewPrefabResource(AssetsPath.Services.LoadingSaveData)
             .AsSingle();
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LoadingServicGame : MonoBehaviour
+public class LoadingServiceGame : MonoBehaviour
 {
    [field: SerializeField] public bool IsLoad { get; private set; }
 

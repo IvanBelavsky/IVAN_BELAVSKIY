@@ -7,15 +7,8 @@ public class AudioSettings : MonoBehaviour
 {
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private Slider _slider;
-
-    private SaveService _saveService;
+    
     private float _volumeMixer;
-
-    [Inject]
-    public void Constructor(SaveService saveService)
-    {
-        _saveService = saveService;
-    }
 
     [field: SerializeField] public string ID { get; private set; } = "Volume";
 

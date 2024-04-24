@@ -26,7 +26,8 @@ public class GameInstaller : MonoInstaller
             Quaternion.identity, _canvas.transform);
         Container.Bind<GameBehaviourUI>().FromInstance(gameBehaviourUI).AsSingle();
         gameBehaviourUI.Constructor(Container.Resolve<SceneService>(),
-            Container.Resolve<PauseService>(), Container.Resolve<SaveService>());
+            Container.Resolve<PauseService>(), Container.Resolve<SaveService>(),
+            Container.Resolve<LoadingServiceGame>());
     }
 
     private void BindPlayerHealth()

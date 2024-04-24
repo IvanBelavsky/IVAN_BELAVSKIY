@@ -42,7 +42,7 @@ public class ScoreUI : MonoBehaviour
             _mainMenu.OnClickMainMenuButton += SaveScore;
         if (_enemyHealth != null)
             _enemyHealth.OnScoreChange += AddScore;
-        LoadScore();
+        _text.text = _textTranslate.GetTranslateById("score") + ": " + _score.ToString();
     }
 
     private void OnDisable()

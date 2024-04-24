@@ -14,14 +14,14 @@ public class MenuPanel : MonoBehaviour
 
     private SceneService _sceneService;
     private SaveService _saveService;
-    private LoadingServicGame _loadingServic;
+    private LoadingServiceGame _loadingService;
 
     [Inject]
-    public void Constructor(SceneService sceneService, SaveService saveService, LoadingServicGame loadingServicGame)
+    public void Constructor(SceneService sceneService, SaveService saveService, LoadingServiceGame loadingServiceGame)
     {
         _sceneService = sceneService;
         _saveService = saveService;
-        _loadingServic = loadingServicGame;
+        _loadingService = loadingServiceGame;
     }
 
     private void Awake()
@@ -44,7 +44,8 @@ public class MenuPanel : MonoBehaviour
 
     private void Play()
     {
-        _loadingServic.Loaouding(false);
+        _saveService.ClearSaveData();
+        _loadingService.Loaouding(false);
         _sceneService.LoadScene("SampleScene");
     }
 
@@ -68,8 +69,7 @@ public class MenuPanel : MonoBehaviour
 
     private void Continue()
     {
-        _loadingServic.Loaouding(true);
-        _saveService.LoadPosition();
+        _loadingService.Loaouding(true);
         _sceneService.LoadScene("SampleScene");
     }
 }

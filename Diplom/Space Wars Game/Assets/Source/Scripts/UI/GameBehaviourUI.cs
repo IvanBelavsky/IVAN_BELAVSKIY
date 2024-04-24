@@ -19,16 +19,18 @@ public class GameBehaviourUI : MonoBehaviour
     private SceneService _sceneService;
     private PauseService _pauseService;
     private SaveService _saveService;
+    private LoadingServiceGame _loading;
     private float _startVolumeSound;
     private bool _isDisableSound;
     private bool _isPause;
 
     [Inject]
-    public void Constructor(SceneService sceneService, PauseService pauseService, SaveService saveService)
+    public void Constructor(SceneService sceneService, PauseService pauseService, SaveService saveService, LoadingServiceGame loadingServiceGame)
     {
         _sceneService = sceneService;
         _pauseService = pauseService;
         _saveService = saveService;
+        _loading = loadingServiceGame;
     }
 
     private void Awake()
@@ -80,6 +82,7 @@ public class GameBehaviourUI : MonoBehaviour
         OnClickMainMenuButton?.Invoke();
         _saveService.SaveObjects();
         ClickPause();
+        _loading.Loaouding(false);
         _sceneService.LoadScene("MenuScene");
     }
 
