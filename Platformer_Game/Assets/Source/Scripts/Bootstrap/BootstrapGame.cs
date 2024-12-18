@@ -1,18 +1,29 @@
+using System;
+using Cinemachine;
 using UnityEngine;
 
 public class BootstrapGame : MonoBehaviour
 {
-    [SerializeField] private GamePlayMediator _gamePlayMediator;
-    [SerializeField] private Character _character;
-    [SerializeField] private DefeatPanel _defeatPanel;
+    [Header("Reference")] [SerializeField] private DefeatPanel _defeatPanel;
+    [SerializeField] private Transform _pointCharacter;
+    [SerializeField] private CinemachineVirtualCamera _cinemachineVirtual;
 
     private Level _level;
-    
+    private CharacterFactory _characterFactory;
+    private Character _character;
+    private GamePlayMediator _gamePlayMediator;
+
     private void Awake()
     {
+        _characterFactory = new CharacterFactory();
         _level = new Level();
-        _gamePlayMediator.Initialize(_level);
-         
+        _character = _characterFactory.CreateCharacter(_pointCharacter);
+        _gamePlayMediator = new GamePlayMediator(_level, _character, _defeatPanel);
         _level.Start();
+    }
+
+    private void OnEnable()
+    {
+        _cinemachineVirtual.Follow = _character.transform;
     }
 }

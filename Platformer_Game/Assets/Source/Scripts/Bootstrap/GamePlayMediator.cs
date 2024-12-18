@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
 
-public class GamePlayMediator : MonoBehaviour
-{
-    [SerializeField] private DefeatPanel _defeatPanel;
-    [SerializeField] private Character _character;
-
+public class GamePlayMediator 
+{ 
+    private DefeatPanel _defeatPanel; 
+    private Character _character;
     private Level _level;
 
-    public void Initialize(Level level)
+    public GamePlayMediator(Level level, Character character, DefeatPanel defeatPanel)
     {
+        _defeatPanel = defeatPanel;
+        _character = character;
         _level = level;
         _level.Defeat += Defeat;
         _defeatPanel.OnRestart += RestartLeevel;
