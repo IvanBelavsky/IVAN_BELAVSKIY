@@ -17,7 +17,7 @@ public class GamePlayMediator
         _character.OnDie += Defeat;
     }
 
-    private void OnDestroy()
+    public void OnDestroy()
     {
         _level.Defeat -= Defeat;
         _defeatPanel.OnRestart -= RestartLeevel;

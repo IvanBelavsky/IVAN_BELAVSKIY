@@ -26,4 +26,10 @@ public class BootstrapGame : MonoBehaviour
     {
         _cinemachineVirtual.Follow = _character.transform;
     }
+
+    private void Update()
+    {
+        if(_gamePlayMediator == null)
+            _gamePlayMediator.OnDestroy();
+    }
 }
