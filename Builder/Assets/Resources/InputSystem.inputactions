@@ -1,0 +1,54 @@
+{
+    "name": "InputSystem",
+    "maps": [
+        {
+            "name": "InputUI",
+            "id": "99cb3bbe-317a-4d56-898d-1d7400933440",
+            "actions": [
+                {
+                    "name": "ClickInput",
+                    "type": "Button",
+                    "id": "0c89effe-14a7-468d-a4f6-9580e896c24a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DeleteInput",
+                    "type": "Button",
+                    "id": "c00134e6-9194-4e0b-8723-64edf9cb8ede",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f68a3507-173f-4f78-b88f-52f9b11fbee3",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f486425a-63c7-4549-9b0c-a02eb1023372",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeleteInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
